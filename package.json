@@ -18,5 +18,8 @@
     "nodemailer": "^6.5.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.6"
+  },
+  "engines": {
+    "node": "14.16.1"
   }
 }
