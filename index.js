@@ -11,7 +11,9 @@ const PORT = process.env.PORT || 5000
 let toAdd;
 
 let transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, 
     auth: {
         user: 'colorizenio@gmail.com',
         pass: 'DiplomaProject2021'
