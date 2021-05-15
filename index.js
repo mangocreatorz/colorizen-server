@@ -76,11 +76,11 @@ app.post("/api/newPhotoUpload", function(req, res) {
         }
     });
 
-    // console.log('maxim', toAdd)
+    // console.log('maxim', toAdd)s
 
     var options = {
         method: 'POST',
-        uri: 'http://192.168.1.223:8000/colorize',
+        uri: 'http://82.148.19.131:8000/colorize',
         body: toAdd,
         json: true // Automatically stringifies the body to JSON
     };
