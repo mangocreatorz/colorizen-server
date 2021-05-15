@@ -64,36 +64,36 @@ app.post("/api/newPhotoUpload", function(req, res) {
     }
 
     console.log('poluchil', toAdd)
-    // const mod = new model(toAdd);
+    const mod = new model(toAdd);
 
-    // // console.log('model', mod)
+    // console.log('model', mod)
 
-    // mod.save(function(err, data) {
-    //     if (err) {
-    //         res.send(err);
-    //     } else {
-    //         res.send(data);
-    //     }
-    // });
+    mod.save(function(err, data) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(data);
+        }
+    });
 
-    // // console.log('maxim', toAdd)
+    // console.log('maxim', toAdd)
 
-    // var options = {
-    //     method: 'POST',
-    //     uri: 'http://192.168.1.223:8000/colorize',
-    //     body: toAdd,
-    //     json: true // Automatically stringifies the body to JSON
-    // };
+    var options = {
+        method: 'POST',
+        uri: 'http://192.168.1.223:8000/colorize',
+        body: toAdd,
+        json: true // Automatically stringifies the body to JSON
+    };
 
-    // rp(options)
-    //     .then(function(parsedBody) {
-    //         // POST succeeded...
-    //         console.log("Model got data, everything is great")
-    //     })
-    //     .catch(function(err) {
-    //         // POST failed...
-    //         console.log("Houston, we have problems", err)
-    //     });
+    rp(options)
+        .then(function(parsedBody) {
+            // POST succeeded...
+            console.log("Model got data, everything is great")
+        })
+        .catch(function(err) {
+            // POST failed...
+            console.log("Houston, we have problems", err)
+        });
 
 })
 
