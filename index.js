@@ -6,6 +6,7 @@ const cors = require('cors')
 const rp = require('request-promise');
 const nodemailer = require('nodemailer');
 var base64Img = require('base64-img');
+const PORT = process.env.PORT || 5000
 
 let toAdd;
 
@@ -157,7 +158,6 @@ app.put("/api/photosDone/:email", function(req, res) {
 
 
 
-app.listen(process.env.PORT | 8080, function() {
-
-    console.log('Colorizen HERE! Port: 8080')
+app.listen(PORT, function() {
+    console.log('Colorizen HERE! Port: 5000')
 })
