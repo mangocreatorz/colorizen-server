@@ -155,6 +155,17 @@ app.put("/api/photosDone/:email", function(req, res) {
             console.log('Unable to send mail', error);
         } else {
             console.log('Email send successfully', email);
+            
+            var v;
+            for (v = 0; v < readyForSending.length; v++) { 
+                fs.unlink(readyForSending[v].filepath, function (err) {
+                    if (err) throw err;
+                    // if no error, file has been deleted successfully
+                    console.log('File deleted!', readyForSending[v].filename);
+                });
+            }
+
+            
             readyForSending = [];
             model.remove({ email: mailContent.to }, function(err) {
                 if (!err) {
