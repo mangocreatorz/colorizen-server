@@ -82,7 +82,7 @@ app.post("/api/newPhotoUpload", function(req, res) {
 
     var options = {
         method: 'POST',
-        uri: 'http://81.163.28.224:8000/colorize',
+        uri: 'http://5.53.124.122:8000/colorize',
         body: toAdd,
         json: true // Automatically stringifies the body to JSON
     };
@@ -128,8 +128,10 @@ app.put("/api/photosDone/:email", function(req, res) {
 
     for (i = 0; i < req.body.readyData.length; i++) {
         const data = 'data:image/jpg;base64,' + req.body.readyData[i];
+        const randNumber = Math.floor(Math.random() * 100);
         const destpath = '';
-        const filename = `${email}_new_photo_${i}`;
+        const filename = `${email}_new_photo_${i}_${randNumber}`;
+        
 
         base64Img.img(data, destpath, filename, (err, filepath) => {})
         readyForSending.push({ "filename": `${filename}.jpg`, "path": __dirname + `/${filename}.jpg` })
@@ -153,6 +155,7 @@ app.put("/api/photosDone/:email", function(req, res) {
             console.log('Unable to send mail', error);
         } else {
             console.log('Email send successfully', email);
+            readyForSending = [];
         }
     });
 
@@ -161,5 +164,5 @@ app.put("/api/photosDone/:email", function(req, res) {
 
 
 app.listen(PORT, function() {
-    console.log('Colorizen HERE! Port: 5000')
+    console.log(`Colorizen HERE! Port: ${PORT}`)
 })
