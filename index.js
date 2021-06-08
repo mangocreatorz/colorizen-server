@@ -156,9 +156,9 @@ app.put("/api/photosDone/:email", function(req, res) {
         } else {
             console.log('Email send successfully', email);
             readyForSending = [];
-            model.remove({ email: mailContent.email }, function(err) {
+            model.remove({ email: mailContent.to }, function(err) {
                 if (!err) {
-                        console.log('successfully cleaned', mailContent.email)
+                        console.log('successfully cleaned', mailContent.to)
                 }
                 else {
                         console.log('error', err)
