@@ -82,7 +82,7 @@ app.post("/api/newPhotoUpload", function(req, res) {
 
     var options = {
         method: 'POST',
-        uri: 'http://5.53.124.122:8000/colorize',
+        uri: 'http://80.249.149.186:8000/colorize',
         body: toAdd,
         json: true // Automatically stringifies the body to JSON
     };
